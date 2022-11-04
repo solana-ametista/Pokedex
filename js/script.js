@@ -22,8 +22,12 @@ const renderPkm =  async (pokemon) => {
     if (data) {
         pName.innerHTML = data.name
         pNumber.innerHTML = data.id + " - "
-        pImg.src = data.sprites.versions['generation-viii']['icons']['front_default']
-        //pImg.src = data.sprites.versions['generation-v']['black-white']['animated']['front_default']
+        if (data.id < 650){
+            pImg.src = data.sprites.versions['generation-v']['black-white']['animated']['front_default']
+        } else {
+            pImg.src = data.sprites.versions['generation-viii']['icons']['front_default']
+        }
+        
         id = data.id
     }
     else {
